@@ -1,19 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--Summons the module to give the <html>-->
+<html lang="en" ng-app="todoApp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Angular ToDo</title>
-  <link rel="stylesheet" href="style.css">
+  <title>TODO LIST</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-  
 
+  <main>
+    <section ng-controller="TodoController as $ctrl">
 
+      <p class="title">TODO List</h2>
+      <p class="subtitle">A place to store the things you need to do!</p>
+
+      <input class="inputs" type="text" placeholder="Filter your to-dos">
+
+      <ol>
+          <p>{{$index}}</p>
+          <li ng-repeat="todo in $ctrl.todos">
+              <button ng-click="todo.completed = true" ng-if="!todo.completed">Complete</button class="compbutton">
+              <p ng-class="{completed: todo.completed}">{{ todo.task }}</p>
+              <a ng-click="$ctrl.delete($index);" href="">
+                <i class="fas fa-times"></i>
+              </a>
+          </li>
+      </ol>
+
+      <form ng-submit="$ctrl.add($ctrl.newTodo);">
+          <input class="inputs" ng-model="$ctrl.newTodo.task" type="text" placeholder="Add your to do">
+          <button class="addbutton" ng-disabled="!$ctrl.newTodo">Add</button>
+      </form>
+
+        
+    </section>
+  </main>
 
   <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
-  <script src="/app.module.js"></script>
-  <script src="/app.controller.js"></script>
+    <!--Our module needs to be created before any pieces-->
+  <script src="/app/app.module.js"></script>
+  <script src="/app/app.controller.js"></script>
 </body>
 </html>

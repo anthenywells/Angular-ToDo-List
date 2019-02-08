@@ -1,0 +1,95 @@
+body {
+  margin: 0 auto;
+  background: linear-gradient(to right, #f857a6, #ff5858);
+  font-family: Open Sans;
+  font-weight: 300;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+section {
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.title {
+  font-weight: 400;
+  font-size: 1.9em;
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+}
+
+ol {
+  padding:0 10px 0 25px;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li button {
+  display: inline;
+  padding:5px 10px;
+  margin: 5px;
+  color: #ff69b4;
+  background-color: #fff;
+  border: 1px solid #ff69b4;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+li p {
+  display: inline;
+  margin: 0;
+}
+
+li i {
+  float:right;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.fas {
+  font-size: 1.2em;
+}
+
+form {
+  display:flex;
+  flex-direction: column;
+}
+
+.inputs {
+  border: 1px solid #bbb;
+}
+
+::placeholder {
+  color: #bbb;
+}
+
+.inputs, .addbutton {
+  border-radius: 5px;
+  padding:10px;
+  margin-top: 10px;
+  font-size: .8em;
+}
+
+
+.addbutton {
+  background-color: #ff1493;
+  color: #fff;
+}
