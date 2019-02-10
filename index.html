@@ -35,6 +35,8 @@
           </li>
       </ol>
 
+      <span ng-show="(todos | filter:query).length == 0">No results</span>
+
       <form ng-submit="$ctrl.addTask($ctrl.newTodo);">
           <input class="inputs" ng-model="$ctrl.newTodo.task" type="text" placeholder="Add your to do">
           <button class="addbutton" ng-disabled="!$ctrl.newTodo">Add</button>

@@ -60,6 +60,10 @@ li i {
   float:right;
 }
 
+li i:hover {
+  color:#ff0000;
+}
+
 .completed {
   text-decoration: line-through;
 }
@@ -87,7 +91,6 @@ form {
   margin-top: 10px;
   font-size: .8em;
 }
-
 
 .addbutton {
   background-color: #ff1493;
