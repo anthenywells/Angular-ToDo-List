@@ -18,20 +18,24 @@
       <p class="title">TODO List</h2>
       <p class="subtitle">A place to store the things you need to do!</p>
 
-      <input class="inputs" type="text" placeholder="Filter your to-dos">
+      <input ng-model="filter" class="inputs" type="text" placeholder="Filter your to-dos">
+
 
       <ol>
-          <p>{{$index}}</p>
-          <li ng-repeat="todo in $ctrl.todos">
-              <button ng-click="todo.completed = true" ng-if="!todo.completed">Complete</button class="compbutton">
-              <p ng-class="{completed: todo.completed}">{{ todo.task }}</p>
-              <a ng-click="$ctrl.delete($index);" href="">
+          <li ng-repeat="todo in $ctrl.todos | filter:filter">
+
+              <button ng-click="$ctrl.completeTask($index);"
+              ng-if="!todo.completed">Complete</button class="compbutton">
+
+              <p ng-class="{completed: todo.completed}" editable-text="todo.task" e-label="User Name">{{ todo.task }}</p>
+              
+              <a ng-click="$ctrl.removeTask($index);" href="">
                 <i class="fas fa-times"></i>
               </a>
           </li>
       </ol>
 
-      <form ng-submit="$ctrl.add($ctrl.newTodo);">
+      <form ng-submit="$ctrl.addTask($ctrl.newTodo);">
           <input class="inputs" ng-model="$ctrl.newTodo.task" type="text" placeholder="Add your to do">
           <button class="addbutton" ng-disabled="!$ctrl.newTodo">Add</button>
       </form>
@@ -41,7 +45,6 @@
   </main>
 
   <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
-    <!--Our module needs to be created before any pieces-->
   <script src="/app/app.module.js"></script>
   <script src="/app/app.controller.js"></script>
 </body>
